@@ -20,7 +20,7 @@
 #include <boost/mpl/reverse_fold.hpp>
 
 #include <cmdg/de/clock.h>
-#include cmdg/de/clock_traits.h>
+#include <cmdg/de/clock_traits.h>
 
 /**************************************************************************************************/
 

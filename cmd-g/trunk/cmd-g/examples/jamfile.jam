@@ -1,0 +1,9 @@
+import os ;
+
+project
+  : requirements
+      <include>.
+      <include>..
+  ;
+
+build-project ex01 ;
