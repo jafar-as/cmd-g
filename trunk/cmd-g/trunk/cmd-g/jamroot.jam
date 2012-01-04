@@ -1,0 +1,14 @@
+import os ;
+
+local BOOST_INCLUDE_PATH = [ os.environ BOOST_INCLUDE ] ;
+local CMDG_INCLUDE_PATH = ./include ;
+
+project cmdg
+  : requirements
+      <target-os>windows:<linkflags>"Ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib"
+      <target-os>windows:<cxxflags>/DWIN32
+      <include>$(BOOST_INCLUDE_PATH)
+      <include>$(CMDG_INCLUDE_PATH)
+  ;
+
+build-project examples ;
