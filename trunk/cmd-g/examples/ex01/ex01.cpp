@@ -1,3 +1,10 @@
+/*
+    Copyright 2012 Jay Graham
+
+    Distributed under the MIT License (see accompanying file LICENSE_1_0_0.txt
+    or http://www.opensource.org/licenses/mit-license.php)
+*/
+
 /**************************************************************************************************/
 
 #include <cmdg/de/sim.h>

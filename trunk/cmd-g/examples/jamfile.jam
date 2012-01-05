@@ -7,3 +7,5 @@ project
   ;
 
 build-project ex01 ;
+build-project ex02 ;
+build-project ex03 ;

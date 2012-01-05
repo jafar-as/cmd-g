@@ -1,0 +1,11 @@
+#
+
+exe ex02
+  : ex02.cpp
+  :  <include>.
+     <define>BOOST_MPL_CFG_NO_PREPROCESSED_HEADERS=1
+     <define>BOOST_MPL_LIMIT_SET_SIZE=50
+     <define>BOOST_MPL_LIMIT_VECTOR_SIZE=50
+     <target-os>linux,<toolset>gcc,<variant>debug:<cxxflags>-O1
+     <target-os>linux,<toolset>gcc,<variant>debug:<inlining>on
+  ;
