@@ -7,11 +7,13 @@
 
 /**************************************************************************************************/
 
+#include <iostream>
 #include <cmath>
 
 #include <boost/units/quantity.hpp>
 #include <boost/units/systems/si.hpp>
 #include <boost/units/cmath.hpp>
+#include <boost/units/systems/si/io.hpp>
 
 #include <cmdg/de/sim.h>
 #include <cmdg/algorithm/euler.h>
@@ -80,7 +82,11 @@ using namespace cmdg::de;
     {
       if( c.sample(1.0*si::second) || c.tick_first || c.tick_last)
       {
-        printf( "%12s %8.3f %8.3f %8.3f\n", "Target", c.t, s_<x_pos>().value, s_<y_pos>().value);
+        //printf( "%12s %8.3f %8.3f %8.3f\n", "Target", c.t, x_pos_value, y_pos_value);
+    	std::cout << "target " << c.t
+    			  << " " << s_<x_pos>().value
+    			  << " " << s_<y_pos>().value
+    			  << std::endl;
       }
     }
   };
@@ -128,7 +134,11 @@ using namespace cmdg::de;
    {
       if( c.sample(1.0*si::seconds) || c.tick_first || c.tick_last)
       {
-        printf( "%12s %8.3f %8.3f %8.3f %8.3f\n", "Missile", c.now(), s_<x_pos>().value, s_<y_pos>().value, d);
+        //printf( "%12s %8.3f %8.3f %8.3f %8.3f\n", "Missile", c.now(), x_pos_value, y_pos_value, d);
+    	std::cout << "Missile " << c.now()
+    			  << " " << s_<x_pos>().value
+    			  << " " << s_<y_pos>().value
+    			  << std::endl;
       }
     }
    
@@ -190,8 +200,12 @@ using namespace cmdg::de;
    {
       if( c.sample(1.0*si::seconds) || c.tick_first || c.tick_last)
       {
-        printf( "%12s %8.3f %8.3f\n", "Radar", c.now(), theta_err * R);
-        printf( "\n");
+        //printf( "%12s %8.3f %8.3f\n", "Radar", c.now(), theta_r);
+        //printf( "\n");
+
+    	std::cout << "Radar " << c.now()
+    			  << " " << (theta_err * R)
+    			  << std::endl;
       }
     }
     

@@ -46,13 +46,13 @@ struct obj : public mpl::reverse_fold<
   typedef STATE_VECTOR state_vector;
   
   template< typename T >
-  inline typename state_base< T > const &s_() const
+  inline state_base< T > const &s_() const
   {
     return( static_cast< const state_base< T > & >(*this) );
   }
   
   template< typename T >
-  inline typename state_base< T > &s_()
+  inline state_base< T > &s_()
   {
     return( static_cast< state_base< T > & >(*this) );
   }

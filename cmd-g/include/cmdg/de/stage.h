@@ -122,10 +122,10 @@ struct update_obj
   
   update_obj( T &s, S &sim, C &c ) : stage_obj(s), sim(sim), c(c) {}
   
-  template< typename S >
-  inline void operator()(S &)
+  template< typename SS >
+  inline void operator()(SS &)
   {
-    stage_obj.template obj_<S>()->update(sim, c);
+    stage_obj.template obj_<SS>()->update(sim, c);
   }
 };
 
