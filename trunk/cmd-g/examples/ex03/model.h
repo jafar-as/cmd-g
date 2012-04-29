@@ -22,22 +22,22 @@
 
 /**************************************************************************************************/
 
-struct gamma : cmdg::de::state< double, double > {};
+struct gamma_t : cmdg::de::state< double, double > {};
 
 /**************************************************************************************************/
  
-struct Model : cmdg::de::obj< mpl::vector< gamma > >
+struct Model : cmdg::de::obj< mpl::vector< gamma_t > >
 {
   Model(double gamma_)
   {
     gamma0 = gamma_;
-    add_integrator<gamma>(gammad);
+    add_integrator<gamma_t>(gammad);
   }
  
   Model()
   {
     gamma0 = 0.0;
-    add_integrator<gamma>(gammad);
+    add_integrator<gamma_t>(gammad);
   }
   
   void init()
@@ -46,7 +46,7 @@ struct Model : cmdg::de::obj< mpl::vector< gamma > >
     
     if( init_count == 0)
     {
-      s_<gamma>().value = gamma0;
+      s_<gamma_t>().value = gamma0;
       k = 1000.0;
     }
   }
@@ -56,7 +56,7 @@ struct Model : cmdg::de::obj< mpl::vector< gamma > >
   {
     gamma_cmd = 1.0;
     v = 1000.0;
-    a_cmd = k * ( gamma_cmd - s_<gamma>().value);
+    a_cmd = k * ( gamma_cmd - s_<gamma_t>().value);
     gammad = a_cmd / v;
   }
     
@@ -65,7 +65,7 @@ struct Model : cmdg::de::obj< mpl::vector< gamma > >
   {
     if( clock.sample(0.1))
     {
-      printf( "%8.3f %8.6f\n", clock.now(), s_<gamma>().value); 
+      printf( "%8.3f %8.6f\n", clock.now(), s_<gamma_t>().value);
     }
   }
   

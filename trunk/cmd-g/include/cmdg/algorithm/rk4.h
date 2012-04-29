@@ -72,7 +72,7 @@ struct rk4
     template< typename S >
     inline void operator()(S &)
     {
-      state_base< S > &s = obj.s_<S>(); 
+      cmdg::de::state_base< S > &s = obj.template s_<S>();
      
       switch(c.k_pass)
       {

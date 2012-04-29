@@ -81,7 +81,7 @@ struct step_sim_impl
           sim.clock.tick_first = false;
         }
         
-        sim.template stage_<HEAD>().propagate<T::algorithm>(sim.clock);
+        sim.template stage_<HEAD>().propagate<typename T::algorithm>(sim.clock);
     
         sim.update_clock();
         
@@ -105,7 +105,7 @@ struct step_sim_impl
           }
           
           // End of simulation?
-          if ((sim.clock.t + clock_traits<T::clock_tag>::epsilon()) >= sim.tmax)
+          if ((sim.clock.t + clock_traits<typename T::clock_tag>::epsilon()) >= sim.tmax)
           {
             end_of_sim = true;
           }

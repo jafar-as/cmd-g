@@ -74,14 +74,14 @@ struct sim : public
   inline void init()
   {
     clock.init();
-    clock.reset(stage_<mpl::front<STAGE_VECTOR>::type>().dts);
+    clock.reset(stage_<typename mpl::front<STAGE_VECTOR>::type>().dts);
     
     next_sim_stage = false;
     halt_sim = false;
  
     mpl::for_each< STAGE_VECTOR >(init_stage< sim >(*this));
     
-    stage_<mpl::front<STAGE_VECTOR>::type>().init_objs();
+    stage_<typename mpl::front<STAGE_VECTOR>::type>().init_objs();
   }
   
   template< typename T >
